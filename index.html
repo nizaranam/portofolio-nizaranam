@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portofolio Desain Komunikasi Visual Nizar Bachrul Anam — graphic design, UI/UX Figma, 3D modeling Blender, dan branding.">
+    <meta name="author" content="Nizar Bachrul Anam">
+    <meta name="theme-color" content="#E11D74">
+    <title>Nizar Bachrul Anam — Creative Portfolio 2026</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+    <!-- Open Graph / Social Media Preview
+         Ganti nilai og:image dengan URL absolut setelah situs di-deploy,
+         contoh: https://username.github.io/repo/assets/foto-profil.jpeg -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nizar Bachrul Anam — Creative Portfolio 2026">
+    <meta property="og:description" content="Visual Communication Designer — graphic design, UI/UX Figma, 3D Blender, dan branding.">
+    <meta property="og:image" content="assets/foto-profil.jpeg">
+    <meta property="og:locale" content="id_ID">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nizar Bachrul Anam — Creative Portfolio 2026">
+    <meta name="twitter:description" content="Visual Communication Designer — graphic design, UI/UX Figma, 3D Blender, dan branding.">
+    <meta name="twitter:image" content="assets/foto-profil.jpeg">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        plum: {
+                            950: '#1D0812',
+                            900: '#2E0A1B',
+                            800: '#451029',
+                            700: '#5E1638',
+                        },
+                        magenta: {
+                            accent: '#E11D74',
+                            light: '#F43F8E',
+                        },
+                        cream: {
+                            100: '#FAF7F8',
+                            200: '#F2ECEF',
+                        }
+                    },
+                    animation: {
+                        'spin-slow': 'spin 18s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Editorial Ribbed/Vertical Stripes Background inspired by Ref 1 */
+        .bg-plum-stripes {
+            background-color: #2E0A1B;
+            background-image: repeating-linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.025) 0px,
+                rgba(255, 255, 255, 0.025) 28px,
+                rgba(0, 0, 0, 0.16) 28px,
+                rgba(0, 0, 0, 0.16) 56px
+            );
+        }
+
+        .bg-dark-grid {
+            background-color: #16060E;
+            background-image: radial-gradient(rgba(225, 29, 116, 0.15) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Squircle Icon Shadow & Depth */
+        .squircle-card {
+            border-radius: 26px;
+            box-shadow: 0 18px 38px -12px rgba(46, 10, 27, 0.12), 0 4px 12px -2px rgba(0, 0, 0, 0.05);
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .squircle-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 24px 48px -12px rgba(225, 29, 116, 0.22), 0 8px 16px -4px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Polaroid Card Styling inspired by Ref 2 */
+        .polaroid-frame {
+            background: #ffffff;
+            padding: 12px 12px 34px 12px;
+            border-radius: 14px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .polaroid-frame:hover {
+            transform: rotate(0deg) scale(1.03) !important;
+            z-index: 20;
+        }
+
+        /* Subtle Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1D0812;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #5E1638;
+            border-radius: 999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #E11D74;
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Edit Mode Highlight */
+        body.edit-mode .editable-img-wrapper {
+            outline: 2px dashed #E11D74;
+            outline-offset: 4px;
+            cursor: pointer;
+        }
+        body.edit-mode .editable-img-wrapper::after {
+            content: '📷 Klik Ganti Gambar';
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: #E11D74;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 999px;
+            z-index: 30;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body class="bg-[#18070F] text-white font-sans antialiased selection:bg-magenta-accent selection:text-white overflow-x-hidden">
+
+    <!-- Hidden Global File Input for Custom Image Upload -->
+    <input type="file" id="globalImageInput" accept="image/*" class="hidden">
+
+    <!-- Toast Notification Container (Replaces alert()) -->
+    <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- Top Editorial Bar (Ref 1 Style) -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-[#18070F]/85 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Left Tag -->
+            <a href="#" class="flex items-center gap-2.5 text-xs sm:text-sm font-semibold tracking-[0.2em] text-white/90 uppercase">
+                <span class="w-2.5 h-2.5 rounded-full bg-magenta-accent inline-block animate-pulse"></span>
+                <span>MY PORTFOLIO &bull; 2026</span>
+            </a>
+
+            <!-- Center/Right Navigation -->
+            <nav class="hidden md:flex items-center gap-7 text-xs font-semibold tracking-wider uppercase text-white/75">
+                <a href="#about" class="hover:text-magenta-light transition-colors">About</a>
+                <a href="#skills" class="hover:text-magenta-light transition-colors">Skills</a>
+                <a href="#experience" class="hover:text-magenta-light transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-magenta-light transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-magenta-light transition-colors">Contact</a>
+            </nav>
+
+            <!-- Right Name & Utility Toggle -->
+            <div class="flex items-center gap-3">
+                <button id="toggleEditBtn" onclick="toggleEditMode()" title="Aktifkan mode ganti foto karya/profil langsung di browser" class="text-[11px] sm:text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20 bg-white/5 hover:bg-magenta-accent hover:border-magenta-accent transition-all flex items-center gap-1.5">
+                    <i class="fa-solid fa-wand-magic-sparkles text-magenta-light"></i>
+                    <span id="editBtnText">Ganti Foto</span>
+                </button>
+                <span class="hidden lg:inline-block text-xs font-bold tracking-[0.18em] text-white/95 uppercase pl-2 border-l border-white/15">
+                    NIZAR BACHRUL ANAM
+                </span>
+            </div>
+        </div>
+        <!-- Mobile Quick Nav -->
+        <div class="md:hidden flex items-center justify-around py-2 border-t border-white/5 text-[11px] font-semibold tracking-wider uppercase text-white/75 bg-[#1D0812]">
+            <a href="#about" class="px-2 py-1 hover:text-white">About</a>
+            <a href="#skills" class="px-2 py-1 hover:text-white">Skills</a>
+            <a href="#experience" class="px-2 py-1 hover:text-white">Experience</a>
+            <a href="#projects" class="px-2 py-1 hover:text-white">Projects</a>
+            <a href="#contact" class="px-2 py-1 hover:text-white">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-8 sm:space-y-12">
+
+        <!-- 1. HERO SECTION (Ref 1 Split Card + Dense Showcase Collage) -->
+        <section class="relative rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-2xl border border-white/10 bg-plum-stripes">
+            <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[540px] lg:min-h-[600px]">
+                
+                <!-- Left Editorial Typography Column -->
+                <div class="lg:col-span-6 p-8 sm:p-12 lg:p-14 flex flex-col justify-between relative z-10">
+                    <!-- Brand Header -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center font-display font-black text-white text-base">
+                                N
+                            </div>
+                            <span class="text-xs font-bold tracking-[0.22em] text-white/80 uppercase">NIZAR BACHRUL ANAM</span>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-magenta-accent/20 border border-magenta-accent/40 text-magenta-light text-[11px] font-bold tracking-wider uppercase">
+                            DKV &bull; 2026
+                        </span>
+                    </div>
+
+                    <!-- Giant Title (Ref 1 Style) -->
+                    <div class="my-10 lg:my-0">
+                        <p class="text-xs sm:text-sm font-semibold tracking-[0.2em] text-pink-200/75 uppercase mb-3">
+                            Visual Communication Designer
+                        </p>
+                        <h1 class="font-display font-extrabold text-5xl sm:text-6xl xl:text-[74px] leading-[0.95] tracking-tight text-white">
+                            creative<br>
+                            portfolio<span class="text-magenta-accent">.</span>
+                        </h1>
+                        <p class="mt-5 text-sm sm:text-base text-pink-100/80 max-w-md leading-relaxed">
+                            Menghadirkan solusi desain visual yang berdampak, komunikatif, dan estetis—mulai dari identitas brand, konten media sosial, UI/UX hingga pemodelan 3D.
+                        </p>
+                        
+                        <!-- CTA Buttons -->
+                        <div class="mt-7 flex flex-wrap items-center gap-3">
+                            <a href="#projects" class="px-6 py-3.5 rounded-2xl bg-magenta-accent hover:bg-magenta-light text-white font-bold text-sm shadow-lg shadow-magenta-accent/30 transition-all flex items-center gap-2">
+                                <span>Lihat Karya Terpilih</span>
+                                <i class="fa-solid fa-arrow-down-right"></i>
+                            </a>
+                            <a href="#contact" class="px-6 py-3.5 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 text-white font-semibold text-sm transition-all">
+                                Hubungi Saya
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Discipline Tagline (Ref 1 Style) -->
+                    <div class="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-2 text-[11px] sm:text-xs font-bold tracking-[0.22em] text-pink-200/80 uppercase">
+                        <span>GRAPHIC DESIGN &bull; UI/UX &bull; 3D BLENDER &bull; BRANDING</span>
+                    </div>
+                </div>
+
+                <!-- Right Dense Visual Showcase Collage (Ref 1 Right Grid) -->
+                <div class="lg:col-span-6 bg-[#13050C]/75 p-4 sm:p-6 lg:p-7 border-t lg:border-t-0 lg:border-l border-white/10 relative overflow-hidden flex items-center">
+                    <!-- Circular Rotating Stamp Badge (Ref 2 Signature Element) -->
+                    <div class="hidden sm:flex absolute -top-6 -right-6 z-20 w-32 h-32 items-center justify-center pointer-events-none">
+                        <svg class="w-full h-full animate-spin-slow text-white/85" viewBox="0 0 100 100">
+                            <defs>
+                                <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+                            </defs>
+                            <text font-size="8.2" font-weight="800" fill="currentColor" letter-spacing="2.2">
+                                <textPath href="#circlePath">
+                                    VISUAL DESIGN • UI/UX • 3D ART •
+                                </textPath>
+                            </text>
+                        </svg>
+                        <div class="absolute w-10 h-10 rounded-full bg-magenta-accent flex items-center justify-center text-white text-xs shadow-lg">
+                            <i class="fa-solid fa-sparkles"></i>
+                        </div>
+                    </div>
+
+                    <!-- Interactive 3-Column Bento Preview Grid -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full">
+                        <!-- Card 3: Figma Yakitori UI -->
+                        <div onclick="openProjectModal('yakitori')" class="cursor-pointer group rounded-2xl bg-[#F6EDE6] text-[#3B2316] p-3.5 shadow-lg hover:-translate-y-1 transition-all flex flex-col justify-between min-h-[155px]">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[10px] font-extrabold uppercase tracking-wider text-amber-800">Figma UI/UX</span>
+                                <i class="fa-brands fa-figma text-amber-800 text-xs"></i>
+                            </div>
+                            <div class="my-2 bg-white rounded-xl p-2 shadow-sm border border-amber-900/10">
+                                <div class="text-[10px] font-black tracking-widest text-center text-amber-950">YAKITORI</div>
+                                <div class="mt-1.5 grid grid-cols-2 gap-1">
+                                    <div class="h-6 rounded bg-amber-100"></div>
+                                    <div class="h-6 rounded bg-orange-200"></div>
+                                </div>
+                            </div>
+                            <p class="font-bold text-xs text-amber-950">Yakitori Culinary App</p>
+                        </div>
+
+                        <!-- Card 4: Blender 3D -->
+                        <div onclick="openProjectModal('blender')" class="cursor-pointer group rounded-2xl bg-[#1E222D] border border-white/10 p-3.5 shadow-lg hover:-translate-y-1 transition-all flex flex-col justify-between min-h-[155px]">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[10px] font-extrabold uppercase tracking-wider text-orange-400">Blender 3D</span>
+                                <i class="fa-solid fa-cube text-orange-400 text-xs"></i>
+                            </div>
+                            <div class="my-1 flex items-center justify-center">
+                                <svg class="w-16 h-14 group-hover:rotate-6 transition-transform" viewBox="0 0 80 64" fill="none">
+                                    <rect x="18" y="26" width="44" height="24" rx="4" fill="#F97316" fill-opacity="0.25" stroke="#FB923C" stroke-width="2"/>
+                                    <path d="M14 26L22 14H58L66 26H14Z" fill="#FB923C"/>
+                                    <circle cx="26" cy="52" r="5" fill="#FFF"/>
+                                    <circle cx="54" cy="52" r="5" fill="#FFF"/>
+                                </svg>
+                            </div>
+                            <p class="font-bold text-xs text-white">3D Food Cart &amp; Character</p>
+                        </div>
+
+                        <!-- Card 5: Social Media Campaign -->
+                        <div onclick="openProjectModal('mobileapp')" class="cursor-pointer group rounded-2xl bg-amber-400 text-stone-950 p-3.5 shadow-lg hover:-translate-y-1 transition-all flex flex-col justify-between min-h-[155px]">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[10px] font-extrabold uppercase tracking-wider bg-stone-950 text-amber-400 px-2 py-0.5 rounded">Social Media</span>
+                                <i class="fa-brands fa-instagram text-stone-900 text-xs"></i>
+                            </div>
+                            <div class="my-2">
+                                <p class="font-display font-black text-sm leading-tight">Social Media Campaign</p>
+                                <p class="text-[11px] font-medium text-stone-800 mt-0.5">FT-IRS ITS &middot; Mahasiswa Baru 2026</p>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="w-4 h-1.5 rounded-full bg-stone-950"></span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-stone-950/40"></span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-stone-950/40"></span>
+                            </div>
+                        </div>
+
+                        <!-- Card 6: Logo & Apparel Mockup -->
+                        <div onclick="openProjectModal('apparel')" class="cursor-pointer group rounded-2xl bg-zinc-900 border border-white/15 p-3.5 shadow-lg hover:-translate-y-1 transition-all flex flex-col justify-between min-h-[155px]">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-zinc-400">Branding</span>
+                                <i class="fa-solid fa-shirt text-white text-xs"></i>
+                            </div>
+                            <div class="my-1 flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-shirt text-2xl text-zinc-700 stroke-white"></i>
+                                <i class="fa-solid fa-shirt text-2xl text-white"></i>
+                            </div>
+                            <p class="font-bold text-xs text-white">Logo &amp; Apparel Mockup</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. ABOUT ME SECTION (Ref 1 "hi, i'm madison." Split + Ref 2 Tilted Polaroid & Upload Feature) -->
+        <section id="about" class="reveal rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-2xl border border-white/10 bg-plum-stripes">
+            <div class="grid grid-cols-1 lg:grid-cols-12 items-center">
+                
+                <!-- Left Bio Content (Ref 1 Style) -->
+                <div class="lg:col-span-7 p-8 sm:p-12 lg:p-14">
+                    <div class="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-pink-200/80 uppercase mb-4">
+                        <span class="w-2 h-2 rounded-full bg-magenta-accent"></span>
+                        <span>HELLO &bull; TENTANG SAYA</span>
+                    </div>
+
+                    <h2 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-white">
+                        hi, i'm<br>
+                        nizar<span class="text-magenta-accent">.</span>
+                    </h2>
+
+                    <p class="mt-6 text-base sm:text-lg text-pink-50/90 leading-relaxed font-normal max-w-2xl">
+                        Saya seorang pelajar <strong class="text-white font-semibold">Desain Komunikasi Visual (DKV)</strong> yang terampil dalam menghasilkan solusi desain visual yang berdampak dan efektif. Saya tidak hanya berfokus pada estetika, tetapi juga berperan sebagai komunikator profesional yang siap berkolaborasi secara tim maupun mandiri.
+                    </p>
+
+                    <!-- Editorial Metadata Grid (Directly inspired by Ref 1 bottom bio specs) -->
+                    <div class="mt-8 pt-7 border-t border-white/15 grid grid-cols-2 sm:grid-cols-4 gap-5">
+                        <div>
+                            <p class="text-[10px] font-bold tracking-[0.2em] text-pink-200/60 uppercase">NAMA LENGKAP</p>
+                            <p class="mt-1 text-sm font-bold text-white">Nizar Bachrul Anam</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold tracking-[0.2em] text-pink-200/60 uppercase">BIDANG STUDI</p>
+                            <p class="mt-1 text-sm font-bold text-white">Desain Komunikasi Visual</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold tracking-[0.2em] text-pink-200/60 uppercase">PENGALAMAN</p>
+                            <p class="mt-1 text-sm font-bold text-white">Magang Koota Production</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold tracking-[0.2em] text-pink-200/60 uppercase">FOKUS UTAMA</p>
+                            <p class="mt-1 text-sm font-bold text-magenta-light">Visual, UI/UX &amp; 3D</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Editorial Portrait + Polaroid Frame (Ref 1 + Ref 2 Hybrid) -->
+                <div class="lg:col-span-5 p-8 sm:p-12 bg-gradient-to-br from-white/5 to-black/30 flex flex-col items-center justify-center relative">
+                    <!-- Decorative Rotating Stamp -->
+                    <div class="absolute top-6 left-6 w-20 h-20 rounded-full border border-dashed border-pink-300/30 flex items-center justify-center text-[10px] font-bold tracking-widest text-pink-200/70 uppercase text-center p-2 rotate-[-12deg]">
+                        DKV CREATIVE 2026
+                    </div>
+
+                    <!-- Portrait Card: Foto Profil -->
+                    <div class="max-w-[340px] w-full relative group">
+                        <div class="rounded-[26px] bg-white p-2.5 shadow-2xl -rotate-2 transition-transform duration-500 hover:rotate-0">
+                            <div class="editable-img-wrapper relative aspect-[4/5] w-full rounded-[20px] overflow-hidden bg-plum-950" onclick="triggerImageUpload('profileImg')">
+                                <img id="profileImg"
+                                     src="assets/foto-profil.jpeg"
+                                     alt="Foto Profil Nizar Bachrul Anam"
+                                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+
+                                <!-- Name & Role Overlay -->
+                                <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/85 via-black/40 to-transparent">
+                                    <p class="text-[10px] font-bold tracking-[0.2em] text-pink-200/80 uppercase">Visual Designer</p>
+                                    <p class="font-display font-extrabold text-lg text-white leading-tight">Nizar Bachrul Anam</p>
+                                    <p class="text-[11px] font-medium text-white/70 mt-0.5">DKV &middot; Creative Portfolio 2026</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SKILLS + TOOLS SECTION (Ref 1 Clean Light Card + Squircle App Icons) -->
+        <section id="skills" class="reveal rounded-[28px] sm:rounded-[36px] bg-gradient-to-br from-[#FAF7F8] via-[#FFFFFF] to-[#F3EBF0] text-plum-950 p-8 sm:p-12 lg:p-14 shadow-2xl">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+                <div>
+                    <div class="flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-plum-700/70 uppercase mb-2">
+                        <span class="w-2 h-2 rounded-full bg-magenta-accent"></span>
+                        <span>KEAHLIAN &amp; PERANGKAT LUNAK</span>
+                    </div>
+                    <h2 class="font-display font-extrabold text-4xl sm:text-5xl tracking-tight text-plum-950">
+                        skills + tools<span class="text-magenta-accent">.</span>
+                    </h2>
+                </div>
+                <p class="text-sm text-gray-600 max-w-md">
+                    Perangkat desain standar industri yang saya kuasai untuk mengeksekusi konsep visual dari sketsa hingga produksi akhir.
+                </p>
+            </div>
+
+            <!-- 4 Squircle App Cards Grid (Ref 1 Aesthetic) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Tool 1: Adobe Photoshop -->
+                <div class="squircle-card bg-white p-6 border border-plum-900/5 flex flex-col justify-between">
+                    <div>
+                        <div class="w-16 h-16 rounded-[20px] bg-[#001E36] flex items-center justify-center shadow-lg shadow-[#001E36]/25 mb-5">
+                            <span class="font-display font-extrabold text-2xl text-[#31A8FF] tracking-tight">Ps</span>
+                        </div>
+                        <h3 class="font-display font-extrabold text-lg text-plum-950">Adobe Photoshop</h3>
+                        <p class="text-xs font-bold text-magenta-accent uppercase tracking-wider mt-1">Photo Manipulation &amp; Posters</p>
+                        <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+                            Manipulasi foto profesional, retouching visual komersial, pembuatan poster iklan, dan mockup produk realistis.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-gray-500">
+                        <span>Graphic &amp; Print</span>
+                        <span class="text-plum-900 font-bold">Advanced</span>
+                    </div>
+                </div>
+
+                <!-- Tool 2: Canva -->
+                <div class="squircle-card bg-white p-6 border border-plum-900/5 flex flex-col justify-between">
+                    <div>
+                        <div class="w-16 h-16 rounded-[20px] bg-gradient-to-br from-[#00C4CC] via-[#3B82F6] to-[#7D2AE8] flex items-center justify-center shadow-lg shadow-blue-500/25 mb-5">
+                            <span class="font-display font-extrabold text-lg text-white italic">Canva</span>
+                        </div>
+                        <h3 class="font-display font-extrabold text-lg text-plum-950">Canva</h3>
+                        <p class="text-xs font-bold text-magenta-accent uppercase tracking-wider mt-1">Social Media Feeds &amp; Carousel</p>
+                        <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+                            Perancangan sistem template feed Instagram yang konsisten, microblog carousel edukatif, dan materi promosi cepat.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-gray-500">
+                        <span>Social Media</span>
+                        <span class="text-plum-900 font-bold">Expert</span>
+                    </div>
+                </div>
+
+                <!-- Tool 3: Figma -->
+                <div class="squircle-card bg-white p-6 border border-plum-900/5 flex flex-col justify-between">
+                    <div>
+                        <div class="w-16 h-16 rounded-[20px] bg-[#1E1E1E] flex items-center justify-center shadow-lg shadow-black/25 mb-5">
+                            <!-- Custom Figma Vector Mark -->
+                            <svg class="w-8 h-8" viewBox="0 0 38 57" fill="none">
+                                <path d="M19 28.5A9.5 9.5 0 1 1 28.5 19 9.5 9.5 0 0 1 19 28.5Z" fill="#1ABCFE"/>
+                                <path d="M9.5 47.5A9.5 9.5 0 0 1 19 38v9.5a9.5 9.5 0 0 1-9.5 0Z" fill="#0ACF83"/>
+                                <path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19Z" fill="#FF7262"/>
+                                <path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5Z" fill="#F24E1E"/>
+                                <path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5Z" fill="#A259FF"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-display font-extrabold text-lg text-plum-950">Figma</h3>
+                        <p class="text-xs font-bold text-magenta-accent uppercase tracking-wider mt-1">UI/UX Design &amp; Prototyping</p>
+                        <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+                            Wireframing, desain antarmuka aplikasi mobile (UI), sistem komponen desain, dan alur pengalaman pengguna (UX).
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-gray-500">
+                        <span>Digital Product</span>
+                        <span class="text-plum-900 font-bold">Proficient</span>
+                    </div>
+                </div>
+
+                <!-- Tool 4: Blender 3D -->
+                <div class="squircle-card bg-white p-6 border border-plum-900/5 flex flex-col justify-between">
+                    <div>
+                        <div class="w-16 h-16 rounded-[20px] bg-gradient-to-br from-[#F5792A] to-[#D9531E] flex items-center justify-center shadow-lg shadow-orange-500/25 mb-5">
+                            <i class="fa-solid fa-cubes text-2xl text-white"></i>
+                        </div>
+                        <h3 class="font-display font-extrabold text-lg text-plum-950">Blender 3D</h3>
+                        <p class="text-xs font-bold text-magenta-accent uppercase tracking-wider mt-1">3D Modeling &amp; Render</p>
+                        <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+                            Pemodelan objek 3D, aset booth &amp; gerobak kuliner, pencahayaan studio, serta eksplorasi karakter 3D.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-gray-500">
+                        <span>3D Visualization</span>
+                        <span class="text-plum-900 font-bold">Creative 3D</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. WORK EXPERIENCE & MAGANG SECTION (Ref 1 "many feeds, one eye" + Ref 2 Timeline Hybrid) -->
+        <section id="experience" class="reveal rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-2xl border border-white/10 bg-plum-stripes p-8 sm:p-12 lg:p-14">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Left Visual Showcase: Poster & Media Sosial -->
+                <div class="lg:col-span-6">
+                    <div class="rounded-[28px] bg-white p-3 sm:p-4 shadow-2xl border border-amber-400/50">
+                        <div class="grid grid-cols-3 gap-2.5">
+                            <button type="button" onclick="openProjectModal('mobileapp')" title="Lihat poster Kuliah Tamu" class="group relative rounded-xl overflow-hidden bg-amber-100 aspect-[4/5] focus:outline-none focus:ring-2 focus:ring-magenta-accent">
+                                <img src="assets/poster-kuliah-tamu.webp" alt="Poster Kuliah Tamu Outlook Renewable Energy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </button>
+                            <button type="button" onclick="openProjectModal('mobileapp')" title="Lihat poster Mahasiswa Baru FTIRS ITS" class="group relative rounded-xl overflow-hidden bg-amber-100 aspect-[4/5] focus:outline-none focus:ring-2 focus:ring-magenta-accent">
+                                <img src="assets/poster-mahasiswa-baru.jpeg" alt="Poster Mahasiswa Baru FTIRS ITS" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </button>
+                            <button type="button" onclick="openProjectModal('mobileapp')" title="Lihat poster Selamat Datang ITS" class="group relative rounded-xl overflow-hidden bg-amber-100 aspect-[4/5] focus:outline-none focus:ring-2 focus:ring-magenta-accent">
+                                <img src="assets/poster-selamat-datang.webp" alt="Poster Selamat Datang Institut Teknologi Sepuluh Nopember" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </button>
+                        </div>
+                        <div class="flex items-center justify-between gap-3 px-1 pt-3 pb-1">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-9 h-9 rounded-xl bg-magenta-accent flex items-center justify-center text-white shrink-0">
+                                    <i class="fa-solid fa-award text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[9px] font-black tracking-widest uppercase text-amber-700">Karya Magang</p>
+                                    <p class="font-display font-extrabold text-sm text-plum-950">Poster &amp; Media Sosial</p>
+                                </div>
+                            </div>
+                            <button type="button" onclick="openProjectModal('mobileapp')" class="shrink-0 px-3 py-1.5 rounded-lg bg-plum-950 hover:bg-magenta-accent text-white text-[11px] font-bold transition-colors flex items-center gap-1.5">
+                                <span>Lihat Kampanye</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Experience Summary & 5 Core Competencies from Image 3 -->
+                <div class="lg:col-span-6">
+                    <div class="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-pink-200/80 uppercase mb-3">
+                        <span class="w-2 h-2 rounded-full bg-magenta-accent"></span>
+                        <span>WORK EXPERIENCE &amp; SPECIALIZATION</span>
+                    </div>
+                    <h2 class="font-display font-extrabold text-4xl sm:text-5xl leading-[1.05] tracking-tight text-white">
+                        work<br>
+                        experience<span class="text-magenta-accent">.</span>
+                    </h2>
+                    <p class="mt-4 text-sm sm:text-base text-pink-100/80 leading-relaxed">
+                        Selama menempuh pendidikan DKV dan menjalani program magang di <strong class="text-white">Koota Production</strong>, saya menangani berbagai kebutuhan komunikasi visual komersial maupun digital:
+                    </p>
+
+                    <!-- Exact 5 Experience Items from Image 3 -->
+                    <div class="mt-6 space-y-3">
+                        <div class="flex items-center gap-4 p-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors">
+                            <span class="w-8 h-8 rounded-xl bg-magenta-accent/25 text-magenta-light font-display font-extrabold text-xs flex items-center justify-center shrink-0">01</span>
+                            <div>
+                                <h4 class="font-bold text-sm sm:text-base text-white">Carousel Desain</h4>
+                                <p class="text-xs text-pink-200/70">Konten slide bersambung (storytelling visual) yang meningkatkan interaksi audiens.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors">
+                            <span class="w-8 h-8 rounded-xl bg-magenta-accent/25 text-magenta-light font-display font-extrabold text-xs flex items-center justify-center shrink-0">02</span>
+                            <div>
+                                <h4 class="font-bold text-sm sm:text-base text-white">Feed Instagram</h4>
+                                <p class="text-xs text-pink-200/70">Perancangan tata letak grid Instagram yang estetis, rapi, dan selaras identitas brand.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors">
+                            <span class="w-8 h-8 rounded-xl bg-magenta-accent/25 text-magenta-light font-display font-extrabold text-xs flex items-center justify-center shrink-0">03</span>
+                            <div>
+                                <h4 class="font-bold text-sm sm:text-base text-white">Kebutuhan Komersial &amp; Booth Display</h4>
+                                <p class="text-xs text-pink-200/70">Desain materi promosi bisnis, branding booth pameran, dan media cetak komersial.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors">
+                            <span class="w-8 h-8 rounded-xl bg-magenta-accent/25 text-magenta-light font-display font-extrabold text-xs flex items-center justify-center shrink-0">04</span>
+                            <div>
+                                <h4 class="font-bold text-sm sm:text-base text-white">Poster Iklan &amp; Kegiatan Layanan Masyarakat</h4>
+                                <p class="text-xs text-pink-200/70">Komunikasi visual persuasif untuk kampanye produk maupun edukasi publik.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors">
+                            <span class="w-8 h-8 rounded-xl bg-magenta-accent/25 text-magenta-light font-display font-extrabold text-xs flex items-center justify-center shrink-0">05</span>
+                            <div>
+                                <h4 class="font-bold text-sm sm:text-base text-white">Desain UI/UX</h4>
+                                <p class="text-xs text-pink-200/70">Perancangan antarmuka aplikasi mobile yang intuitif dan ramah pengguna menggunakan Figma.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SELECTED WORKS / SCHOOL WORK SHOWCASE (Interactive Filter + Bento Cards + Detail Modal) -->
+        <section id="projects" class="reveal rounded-[28px] sm:rounded-[36px] bg-gradient-to-br from-[#FAF7F8] via-[#FFFFFF] to-[#F4ECF0] text-plum-950 p-8 sm:p-12 lg:p-14 shadow-2xl">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-plum-700/70 uppercase mb-2">
+                        <span class="w-2 h-2 rounded-full bg-magenta-accent"></span>
+                        <span>MAGANG &amp; SCHOOL WORK SHOWCASE</span>
+                    </div>
+                    <h2 class="font-display font-extrabold text-4xl sm:text-5xl tracking-tight text-plum-950">
+                        selected works<span class="text-magenta-accent">.</span>
+                    </h2>
+                </div>
+
+                <!-- Interactive Filter Tabs -->
+                <div id="filterTabs" class="flex flex-wrap gap-2">
+                    <button onclick="filterProjects('all', this)" class="filter-btn active px-4 py-2 rounded-full text-xs font-bold bg-plum-950 text-white shadow-md transition-all">
+                        Semua Karya
+                    </button>
+                    <button onclick="filterProjects('commercial', this)" class="filter-btn px-4 py-2 rounded-full text-xs font-bold bg-plum-900/10 text-plum-950 hover:bg-plum-900/20 transition-all">
+                        Magang &amp; Komersial
+                    </button>
+                    <button onclick="filterProjects('uiux', this)" class="filter-btn px-4 py-2 rounded-full text-xs font-bold bg-plum-900/10 text-plum-950 hover:bg-plum-900/20 transition-all">
+                        UI/UX (Figma)
+                    </button>
+                    <button onclick="filterProjects('3d', this)" class="filter-btn px-4 py-2 rounded-full text-xs font-bold bg-plum-900/10 text-plum-950 hover:bg-plum-900/20 transition-all">
+                        3D Modeling (Blender)
+                    </button>
+                    <button onclick="filterProjects('branding', this)" class="filter-btn px-4 py-2 rounded-full text-xs font-bold bg-plum-900/10 text-plum-950 hover:bg-plum-900/20 transition-all">
+                        Branding &amp; Logo
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bento Showcase Grid (4 Projects: School Work) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projectsGrid">
+
+                <!-- PROJECT 2: Magang: Apparel Mockup -->
+                <article data-category="branding" class="project-card group rounded-[28px] bg-white border border-gray-200/80 overflow-hidden shadow-lg flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-3 py-1 rounded-full bg-zinc-900 text-white text-[10px] font-extrabold uppercase tracking-wider">mockup</span>
+                            <span class="text-xs font-bold text-gray-400">magang</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3 mb-4">
+                            <div class="editable-img-wrapper relative rounded-2xl overflow-hidden bg-white aspect-[3/2] border border-gray-200" onclick="triggerImageUpload('projImg2')">
+                                <img id="projImg2" src="assets/mockup-kaos.png" alt="Mockup kaos Indsys tampak depan dan belakang" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="editable-img-wrapper relative rounded-2xl overflow-hidden bg-white aspect-[3/2] border border-gray-200" onclick="triggerImageUpload('projImg2b')">
+                                <img id="projImg2b" src="assets/mockup-jersey.png" alt="Mockup jersey FTI tampak depan dan belakang" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                        </div>
+                        <h3 class="font-display font-extrabold text-xl text-plum-950">
+                            Apparel Mockup
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+                            Perancangan identitas logo tipografi dan implementasi mockup apparel (kaos &amp; jersey) tampak depan dan belakang.
+                        </p>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <button onclick="openProjectModal('apparel')" class="w-full py-2.5 rounded-xl bg-gray-100 hover:bg-plum-950 hover:text-white text-plum-950 font-bold text-xs transition-all flex items-center justify-center gap-2">
+                            <span>Buka Preview Mockup</span>
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- PROJECT 3: School Work: Blender 3D Modeling -->
+                <article data-category="3d" class="project-card group rounded-[28px] bg-[#1C1F2A] text-white border border-gray-800 overflow-hidden shadow-lg flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-3 py-1 rounded-full bg-orange-500 text-white text-[10px] font-extrabold uppercase tracking-wider">Blender 3D</span>
+                            <span class="text-xs font-bold text-gray-400">School Work</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3 mb-4">
+                            <div class="editable-img-wrapper relative rounded-2xl overflow-hidden bg-[#262A38] aspect-[16/9] border border-white/10" onclick="triggerImageUpload('projImg3')">
+                                <img id="projImg3" src="assets/planton-3d.png" alt="Planton — model karakter 3D dengan Blender" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="editable-img-wrapper relative rounded-2xl overflow-hidden bg-[#262A38] aspect-[16/9] border border-white/10" onclick="triggerImageUpload('projImg3b')">
+                                <img id="projImg3b" src="assets/karakter-3d.png" alt="Karakter 3D — model tambahan Blender" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                        </div>
+                        <h3 class="font-display font-extrabold text-xl text-white">
+                            Blender 3D Modeling
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-300 mt-2 leading-relaxed">
+                            Eksplorasi objek 3D menggunakan Blender meliputi model gerobak/booth kuliner 3D ("3D Street Food Cart") dan pemodelan karakter 3D ("3D Character Design").
+                        </p>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <button onclick="openProjectModal('blender')" class="w-full py-2.5 rounded-xl bg-orange-500 hover:bg-orange-400 text-white font-bold text-xs transition-all flex items-center justify-center gap-2">
+                            <span>Detail Model 3D</span>
+                            <i class="fa-solid fa-cube"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- PROJECT 4: School Work: Figma UI/UX — Yakitori App -->
+                <article data-category="uiux" class="project-card group rounded-[28px] bg-[#F6EDE6] text-[#3B2316] border border-amber-900/15 overflow-hidden shadow-lg flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-3 py-1 rounded-full bg-amber-900 text-amber-50 text-[10px] font-extrabold uppercase tracking-wider">Figma UI/UX</span>
+                            <span class="text-xs font-bold text-amber-900/60">School Work</span>
+                        </div>
+                        <div class="mb-4">
+                            <div class="editable-img-wrapper relative rounded-2xl overflow-hidden bg-stone-950 border border-amber-900/10" onclick="triggerImageUpload('projImg4')">
+                                <img id="projImg4" src="assets/yakitori-ui.png" alt="Figma UI UX Yakitori App" class="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500">
+                            </div>
+                        </div>
+                        <h3 class="font-display font-extrabold text-xl text-[#2D180E]">
+                            Figma UI/UX — Yakitori App
+                        </h3>
+                        <p class="text-xs sm:text-sm text-[#5C3D2E] mt-2 leading-relaxed">
+                            Perancangan antarmuka aplikasi pemesanan kuliner Jepang (Yakitori) dengan skema warna hangat, katalog menu, dan alur pemesanan.
+                        </p>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <button onclick="openProjectModal('yakitori')" class="w-full py-2.5 rounded-xl bg-[#3B2316] hover:bg-amber-800 text-white font-bold text-xs transition-all flex items-center justify-center gap-2">
+                            <span>Simulasi Layar UI</span>
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- PROJECT 5: Magang: desain grafis -->
+                <article data-category="commercial" class="project-card group rounded-[28px] bg-gradient-to-br from-amber-300 to-amber-400 text-stone-950 border border-amber-500/40 overflow-hidden shadow-lg flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-3 py-1 rounded-full bg-stone-950 text-amber-300 text-[10px] font-extrabold uppercase tracking-wider">social media</span>
+                            <span class="text-xs font-bold text-stone-900/70">magang</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2.5 mb-4">
+                            <div class="editable-img-wrapper relative rounded-xl overflow-hidden bg-amber-100 aspect-[4/5] border border-stone-950/10" onclick="triggerImageUpload('projImg5')">
+                                <img id="projImg5" src="assets/poster-kuliah-tamu.webp" alt="Poster Kuliah Tamu Outlook Renewable Energy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="editable-img-wrapper relative rounded-xl overflow-hidden bg-amber-100 aspect-[4/5] border border-stone-950/10" onclick="triggerImageUpload('projImg5c')">
+                                <img id="projImg5c" src="assets/poster-mahasiswa-baru.jpeg" alt="Poster Mahasiswa Baru FTIRS ITS" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="editable-img-wrapper relative rounded-xl overflow-hidden bg-amber-100 aspect-[4/5] border border-stone-950/10" onclick="triggerImageUpload('projImg5d')">
+                                <img id="projImg5d" src="assets/poster-selamat-datang.webp" alt="Poster Selamat Datang Institut Teknologi Sepuluh Nopember" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                        </div>
+                        <h3 class="font-display font-extrabold text-xl text-stone-950">
+                            Desain Grafis &amp; Media Sosial
+                        </h3>
+                        <p class="text-xs sm:text-sm text-stone-900/85 mt-2 leading-relaxed">
+                            Serangkaian desain komunikasi visual untuk FT-IRS ITS: poster kuliah tamu, kartu selamat datang mahasiswa baru, dan konten media sosial dengan identitas "Diktisaintek Berdampak".
+                        </p>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <button onclick="openProjectModal('mobileapp')" class="w-full py-2.5 rounded-xl bg-stone-950 hover:bg-stone-800 text-amber-300 font-bold text-xs transition-all flex items-center justify-center gap-2">
+                            <span>Lihat Kampanye</span>
+                            <i class="fa-brands fa-instagram"></i>
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 6. FOOTER / LET'S WORK TOGETHER (Ref 2 Bold Typographic Callout + Contact Actions) -->
+        <footer id="contact" class="reveal rounded-[28px] sm:rounded-[36px] bg-white text-plum-950 p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden">
+            <!-- Decorative Circular Stamp (Ref 2 Signature) -->
+            <div class="hidden md:flex absolute -bottom-10 -left-10 w-44 h-44 items-center justify-center opacity-15 pointer-events-none">
+                <svg class="w-full h-full animate-spin-slow text-plum-950" viewBox="0 0 100 100">
+                    <defs>
+                        <path id="footerCircle" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+                    </defs>
+                    <text font-size="8" font-weight="900" fill="currentColor" letter-spacing="2">
+                        <textPath href="#footerCircle">
+                            THANK YOU • NIZAR BACHRUL ANAM •
+                        </textPath>
+                    </text>
+                </svg>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end relative z-10">
+                <div class="lg:col-span-8">
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-magenta-accent/10 text-magenta-accent text-xs font-extrabold tracking-[0.18em] uppercase mb-4">
+                        AVAILABLE FOR COLLABORATION &amp; FREELANCE
+                    </span>
+                    <h2 class="font-display font-black text-4xl sm:text-5xl lg:text-6xl leading-[0.98] tracking-tight text-plum-950 uppercase">
+                        LET'S WORK TOGETHER<br>
+                        AND CREATE<br>
+                        <span class="text-magenta-accent">SOMETHING GREAT!</span>
+                    </h2>
+                </div>
+
+                <div class="lg:col-span-4 space-y-4">
+                    <div class="p-5 rounded-2xl bg-cream-100 border border-plum-900/10 space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-plum-950 text-white flex items-center justify-center">
+                                <i class="fa-solid fa-user-pen"></i>
+                            </div>
+                            <div>
+                                <p class="text-[11px] font-bold uppercase tracking-wider text-gray-500">Designer</p>
+                                <p class="font-display font-extrabold text-sm text-plum-950">Nizar Bachrul Anam</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between gap-2 p-3 rounded-xl bg-white border border-gray-200">
+                            <div class="truncate">
+                                <p class="text-[10px] font-bold uppercase text-gray-400">Email Kontak</p>
+                                <p id="emailText" class="text-xs sm:text-sm font-bold text-plum-950 truncate">nizar.anam1165@gmail.com</p>
+                            </div>
+                            <button onclick="copyEmail()" class="shrink-0 px-3 py-2 rounded-lg bg-plum-950 hover:bg-magenta-accent text-white text-xs font-bold transition-colors flex items-center gap-1.5">
+                                <i class="fa-regular fa-copy"></i>
+                                <span>Salin</span>
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 pt-1">
+                            <a href="mailto:nizar.anam1165@gmail.com?subject=Kolaborasi%20Desain%20-%20Nizar%20Bachrul%20Anam" class="py-2.5 px-3 rounded-xl bg-magenta-accent hover:bg-magenta-light text-white text-xs font-bold text-center transition-all flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Kirim Email</span>
+                            </a>
+                            <button onclick="openContactModal()" class="py-2.5 px-3 rounded-xl bg-plum-950 hover:bg-plum-800 text-white text-xs font-bold text-center transition-all flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-message"></i>
+                                <span>Pesan Cepat</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright & Thank You (Matching Slide 9 of Image 3) -->
+            <div class="mt-12 pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500 font-medium">
+                <p>&copy; 2026 <strong class="text-plum-950">Nizar Bachrul Anam</strong> &mdash; Desain Komunikasi Visual (DKV).</p>
+                <div class="flex items-center gap-4">
+                    <span class="inline-flex items-center gap-1.5 font-bold text-plum-950">
+                        <span class="px-2 py-0.5 rounded bg-[#001E36] text-[#31A8FF] text-[10px]">Ps</span>
+                        <span class="px-2 py-0.5 rounded bg-blue-600 text-white text-[10px]">Canva</span>
+                        <span class="px-2 py-0.5 rounded bg-zinc-900 text-white text-[10px]">Figma</span>
+                        <span class="px-2 py-0.5 rounded bg-orange-500 text-white text-[10px]">3D</span>
+                    </span>
+                    <span class="font-display font-extrabold text-plum-950 tracking-wider uppercase">THANK YOU.</span>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- PROJECT DETAIL MODAL -->
+    <div id="projectModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div class="bg-white text-plum-950 rounded-[28px] max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-white/20 animate-[float_0.3s_ease-out]">
+            <div class="sticky top-0 z-10 bg-white/95 backdrop-blur-md px-6 py-4 border-b border-gray-100 flex items-center justify-between">
+                <span id="modalBadge" class="px-3 py-1 rounded-full bg-magenta-accent text-white text-xs font-extrabold uppercase tracking-wider">Category</span>
+                <button onclick="closeProjectModal()" class="w-9 h-9 rounded-full bg-gray-100 hover:bg-plum-950 hover:text-white flex items-center justify-center transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <div id="modalBody" class="p-6 sm:p-8 space-y-6">
+                <!-- Dynamic Content Injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- QUICK MESSAGE MODAL -->
+    <div id="contactModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div class="bg-white text-plum-950 rounded-[28px] max-w-md w-full p-6 sm:p-8 shadow-2xl">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="font-display font-extrabold text-2xl text-plum-950">Kirim Pesan ke Nizar<span class="text-magenta-accent">.</span></h3>
+                <button onclick="closeContactModal()" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-plum-950 hover:text-white flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1">Nama Anda / Instansi</label>
+                    <input type="text" required placeholder="Contoh: Studio Kreatif / Klien" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-magenta-accent text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1">Kebutuhan Proyek</label>
+                    <select class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-magenta-accent text-sm bg-white">
+                        <option>Carousel &amp; Feed Instagram</option>
+                        <option>Desain UI/UX (Figma)</option>
+                        <option>Branding, Logo &amp; Poster Komersial</option>
+                        <option>3D Modeling (Blender)</option>
+                        <option>Kolaborasi Tim / Magang</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1">Detail Pesan</label>
+                    <textarea rows="3" required placeholder="Ceritakan singkat kebutuhan desain Anda..." class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-magenta-accent text-sm"></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 rounded-xl bg-magenta-accent hover:bg-magenta-light text-white font-bold text-sm shadow-lg shadow-magenta-accent/25 transition-all">
+                    Kirim Pesan Sekarang
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // 1. Toast Notification Helper (Zero alert() usage)
+        function showToast(message, icon = 'fa-circle-check') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'pointer-events-auto flex items-center gap-3 px-4 py-3 rounded-2xl bg-plum-950 text-white text-xs sm:text-sm font-semibold shadow-2xl border border-white/15 transform transition-all duration-300 translate-y-2 opacity-0';
+            toast.innerHTML = `<i class="fa-solid ${icon} text-magenta-light text-base"></i><span>${message}</span>`;
+            container.appendChild(toast);
+
+            requestAnimationFrame(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            });
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-2', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3200);
+        }
+
+        // 2. Copy Email using execCommand('copy') for reliable iFrame compatibility
+        function copyEmail() {
+            const email = document.getElementById('emailText').innerText;
+            const tempInput = document.createElement('input');
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                showToast('Email berhasil disalin: ' + email);
+            } catch (err) {
+                showToast('Gagal menyalin email, silakan salin manual.', 'fa-circle-exclamation');
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        // 3. Edit Mode & Custom Local Image Replacement
+        let isEditMode = false;
+        let currentTargetImgId = null;
+        const fileInput = document.getElementById('globalImageInput');
+
+        function toggleEditMode() {
+            isEditMode = !isEditMode;
+            document.body.classList.toggle('edit-mode', isEditMode);
+            const btn = document.getElementById('toggleEditBtn');
+            const btnText = document.getElementById('editBtnText');
+            
+            if (isEditMode) {
+                btn.classList.add('bg-magenta-accent', 'border-magenta-accent');
+                btnText.innerText = 'Selesai Edit';
+                showToast('Mode Ganti Foto aktif! Klik foto profil atau karya mana saja untuk menggantinya.', 'fa-camera');
+            } else {
+                btn.classList.remove('bg-magenta-accent', 'border-magenta-accent');
+                btnText.innerText = 'Ganti Foto';
+                showToast('Mode Ganti Foto dinonaktifkan.');
+            }
+        }
+
+        function triggerImageUpload(imgId) {
+            // Allow direct click on profileImg anytime, or any image when edit-mode is active
+            if (imgId === 'profileImg' || isEditMode) {
+                currentTargetImgId = imgId;
+                fileInput.click();
+            }
+        }
+
+        fileInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file && currentTargetImgId) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const targetImg = document.getElementById(currentTargetImgId);
+                    if (targetImg) {
+                        targetImg.src = e.target.result;
+                        showToast('Foto berhasil diperbarui secara lokal!');
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+            fileInput.value = '';
+        });
+
+        // 4. Category Filter Logic for Projects
+        function filterProjects(category, btnElement) {
+            // Update active button style
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-plum-950', 'text-white', 'shadow-md');
+                btn.classList.add('bg-plum-900/10', 'text-plum-950');
+            });
+            btnElement.classList.remove('bg-plum-900/10', 'text-plum-950');
+            btnElement.classList.add('bg-plum-950', 'text-white', 'shadow-md');
+
+            // Filter cards
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'all' || cardCat === category) {
+                    card.style.display = 'flex';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 20);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.96)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 200);
+                }
+            });
+        }
+
+        // 5. Project Detail Modal Data & Interactive Preview
+        const projectDetails = {
+            apparel: {
+                badge: 'mockup',
+                title: 'Magang: Apparel Mockup',
+                tools: 'Adobe Photoshop • Vector Typography',
+                description: 'Eksplorasi perancangan logo berbasis tipografi eksperimental yang dipadukan dengan implementasi mockup produk apparel (kaos dan jersey tampak depan & belakang).',
+                highlights: [
+                    'Konstruksi bentuk huruf (custom lettering) yang ikonik.',
+                    'Simulasi pencahayaan & lipatan kain realistis pada mockup kaos dan jersey.',
+                    'Keseimbangan komposisi cetak sablon depan dan punggung.'
+                ],
+                mockupHtml: `
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="rounded-2xl overflow-hidden border border-gray-200 bg-white">
+                            <img src="assets/mockup-kaos.png" alt="Mockup kaos Indsys tampak depan dan belakang" class="w-full aspect-[3/2] object-contain">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border border-gray-200 bg-white">
+                            <img src="assets/mockup-jersey.png" alt="Mockup jersey FTI tampak depan dan belakang" class="w-full aspect-[3/2] object-contain">
+                        </div>
+                    </div>
+                `
+            },
+            blender: {
+                badge: '3D Modeling (Blender)',
+                title: 'School Work: Blender 3D Modeling',
+                tools: 'Blender 3D',
+                description: 'Proyek pemodelan 3 dimensi menggunakan Blender yang mencakup pembuatan aset lingkungan kuliner ("3D Street Food Cart") serta eksplorasi anatomi dan gaya karakter ("3D Character Design").',
+                highlights: [],
+                mockupHtml: `
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="rounded-2xl overflow-hidden border border-white/10 bg-[#262A38]">
+                            <img src="assets/planton-3d.png" alt="Planton — model karakter 3D dengan Blender" class="w-full aspect-[16/9] object-cover">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border border-white/10 bg-[#262A38]">
+                            <img src="assets/karakter-3d.png" alt="Karakter 3D — model tambahan Blender" class="w-full aspect-[16/9] object-cover">
+                        </div>
+                    </div>
+                `
+            },
+            yakitori: {
+                badge: 'UI/UX (Figma)',
+                title: 'School Work: Figma UI/UX — Yakitori App',
+                tools: 'Figma',
+                description: 'Perancangan antarmuka (UI) dan pengalaman pengguna (UX) untuk aplikasi pemesanan kuliner khas Jepang (Yakitori) dengan nuansa warna krem hangat dan cokelat kayu autentik.',
+                highlights: [
+                    'Splash screen & halaman autentikasi yang bersih.',
+                    'Katalog menu Yakitori dengan foto hidangan, deskripsi, dan harga jelas.',
+                    'Alur pemesanan dan keranjang belanja yang ringkas.'
+                ],
+                mockupHtml: `
+                    <div class="rounded-2xl overflow-hidden border border-amber-900/10 bg-stone-950">
+                        <img src="assets/yakitori-ui.png" alt="Simulasi layar UI aplikasi Yakitori" class="w-full h-auto">
+                    </div>
+                `
+            },
+            mobileapp: {
+                badge: 'Media Sosial',
+                title: 'Desain Grafis & Kampanye Media Sosial',
+                tools: 'Canva • Adobe Photoshop',
+                description: 'Paket komunikasi visual untuk Fakultas Teknologi Industri dan Rekayasa Sistem ITS — mulai dari poster kuliah tamu, ucapan selamat datang mahasiswa baru angkatan 2026, hingga konten kampanye "Diktisaintek Berdampak".',
+                highlights: [
+                    'Sistem visual yang konsisten untuk berbagai format cetak dan digital.',
+                    'Hirarki tipografi tegas agar pesan utama terbaca instan di feed media sosial.',
+                    'Penempatan identitas fakultas, tagline, dan tautan taplink yang rapi.'
+                ],
+                mockupHtml: `
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <div class="rounded-2xl overflow-hidden border border-stone-950/10 bg-amber-100">
+                            <img src="assets/poster-kuliah-tamu.webp" alt="Poster kuliah tamu Outlook Renewable Energy" class="w-full aspect-[4/5] object-cover">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border border-stone-950/10 bg-amber-100">
+                            <img src="assets/poster-mahasiswa-baru.jpeg" alt="Desain grafis — Mahasiswa Baru FTIRS ITS" class="w-full aspect-[4/5] object-cover">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border border-stone-950/10 bg-amber-100">
+                            <img src="assets/poster-selamat-datang.webp" alt="Desain grafis — Selamat datang Institut Teknologi Sepuluh Nopember" class="w-full aspect-[4/5] object-cover">
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        function openProjectModal(key) {
+            const data = projectDetails[key];
+            if (!data) return;
+
+            document.getElementById('modalBadge').innerText = data.badge;
+            document.getElementById('modalBody').innerHTML = `
+                <div>
+                    <p class="text-xs font-bold text-magenta-accent uppercase tracking-wider">${data.tools}</p>
+                    <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-plum-950 mt-1">${data.title}</h3>
+                    <p class="text-sm text-gray-600 mt-3 leading-relaxed">${data.description}</p>
+                </div>
+
+                ${data.mockupHtml}
+
+                ${data.highlights && data.highlights.length ? `
+                <div class="bg-cream-100 rounded-2xl p-5 border border-plum-900/10">
+                    <h4 class="font-display font-bold text-sm text-plum-950 mb-2.5">Poin Utama Pengerjaan:</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm text-gray-700">
+                        ${data.highlights.map(item => `<li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-magenta-accent mt-1"></i><span>${item}</span></li>`).join('')}
+                    </ul>
+                </div>
+                ` : ''}
+            `;
+
+            const modal = document.getElementById('projectModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeProjectModal() {
+            const modal = document.getElementById('projectModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // 6. Quick Contact Modal Logic
+        function openContactModal() {
+            const modal = document.getElementById('contactModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeContactModal() {
+            const modal = document.getElementById('contactModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            closeContactModal();
+            showToast('Terima kasih! Pesan Anda siap diteruskan ke Nizar Bachrul Anam.');
+            e.target.reset();
+        }
+
+        // Close modals on backdrop click
+        window.addEventListener('click', function(e) {
+            const pModal = document.getElementById('projectModal');
+            const cModal = document.getElementById('contactModal');
+            if (e.target === pModal) closeProjectModal();
+            if (e.target === cModal) closeContactModal();
+        });
+
+        // 7. Smooth Scroll Reveal Observer
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
